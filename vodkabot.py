@@ -39,7 +39,7 @@ def sendMessage(to, text, contentMetadata={}, contentType=0):
 
 def NOTIFIED_ADD_CONTACT(op):
     try:
-        sendMessage(op.param1, client.getContact(op.param1).displayName + " slm Mn Bot ( Self | Protect | cancel )")
+        sendMessage(op.param1, client.getContact(op.param1).displayName + " salam Khosh Omadi Be Friendam Man Bot Cancel Hastam Channel Line Theme t.me/line_theme")
     except Exception as e:
         print e
         print ("\n\nNOTIFIED_ADD_CONTACT\n\n")
@@ -60,7 +60,7 @@ tracer.addOpInterrupt(17,NOTIFIED_ACCEPT_GROUP_INVITATION)
 
 def NOTIFIED_KICKOUT_FROM_GROUP(op):
     try:
-        sendMessage(op.param1, client.getContact(op.param3).displayName + " Koon Goshad \n (*´･ω･*)")
+        sendMessage(op.param1, client.getContact(op.param3).displayName + " Koon ɢօsɦaɖ \n (⌒∩⌒)")
     except Exception as e:
         print e
         print ("\n\nNOTIFIED_KICKOUT_FROM_GROUP\n\n")
@@ -70,7 +70,7 @@ tracer.addOpInterrupt(19,NOTIFIED_KICKOUT_FROM_GROUP)
 
 def NOTIFIED_LEAVE_GROUP(op):
     try:
-        sendMessage(op.param1, client.getContact(op.param2).displayName + " Koon Goshad \n (*´･ω･*)")
+        sendMessage(op.param1, client.getContact(op.param2).displayName + " Kooon ɢօsɦaɖ \n (⌒∩⌒)")
     except Exception as e:
         print e
         print ("\n\nNOTIFIED_LEAVE_GROUP\n\n")
@@ -127,8 +127,8 @@ def SEND_MESSAGE(op):
                     sendMessage(msg.to, msg.to)
                 if msg.text == "me":
                     sendMessage(msg.to, text=None, contentMetadata={'mid': msg.from_}, contentType=13)
-                if msg.text == "gift":
-                    sendMessage(msg.to, text="gift sent", contentMetadata=None, contentType=9)
+                if msg.text == "linetheme":
+                    sendMessage(msg.to, text="channel Line Theme t.me/line_theme ", contentMetadata=None, contentType=9)
                 else:
                     pass
             else:
@@ -247,7 +247,22 @@ def SEND_MESSAGE(op):
                     pass
         else:
             pass
+#----------------------[Masukin Semua SC Yang Ente Pengen Disini]----------------------#
 
+
+        if op.type == 25:
+            msg = op.message
+
+            if msg.text in ["Speed","speed"]:
+
+                    start = time.time()
+
+                    elapsed_time = time.time() - start
+
+                    cl.sendText(msg.to, "%sseconds" % (elapsed_time))
+
+
+#----------------------[Masukin Semua SC Yang Ente Pengen Disini]----------------------#
     except Exception as e:
         print e
         print ("\n\nSEND_MESSAGE\n\n")
