@@ -39,7 +39,7 @@ def sendMessage(to, text, contentMetadata={}, contentType=0):
 
 def NOTIFIED_ADD_CONTACT(op):
     try:
-        sendMessage(op.param1, client.getContact(op.param1).displayName + " salam Khosh Omadi Be Friendam Man Bot Cancel Hastam Channel Line Theme t.me/line_theme")
+        sendMessage(op.param1, client.getContact(op.param1).displayName + " اسم تو  (خوش اومدی رفیق )")
     except Exception as e:
         print e
         print ("\n\nNOTIFIED_ADD_CONTACT\n\n")
@@ -60,7 +60,7 @@ tracer.addOpInterrupt(17,NOTIFIED_ACCEPT_GROUP_INVITATION)
 
 def NOTIFIED_KICKOUT_FROM_GROUP(op):
     try:
-        sendMessage(op.param1, client.getContact(op.param3).displayName + " Koon ɢօsɦaɖ \n (⌒∩⌒)")
+        sendMessage(op.param1, client.getContact(op.param3).displayName + " اخه چرا لفت میدی که دعوت شی کون گشاد :| فحش بدی کون گشاد بعدی خودتی  \n (⌒∩⌒)")
     except Exception as e:
         print e
         print ("\n\nNOTIFIED_KICKOUT_FROM_GROUP\n\n")
@@ -70,7 +70,7 @@ tracer.addOpInterrupt(19,NOTIFIED_KICKOUT_FROM_GROUP)
 
 def NOTIFIED_LEAVE_GROUP(op):
     try:
-        sendMessage(op.param1, client.getContact(op.param2).displayName + " Kooon ɢօsɦaɖ \n (⌒∩⌒)")
+        sendMessage(op.param1, client.getContact(op.param2).displayName + " اخه چرا لفت میدی که دعوت شی کون گشاد :| فحش بدی کون گشاد بعدی خودتی  \n (⌒∩⌒)")
     except Exception as e:
         print e
         print ("\n\nNOTIFIED_LEAVE_GROUP\n\n")
@@ -141,10 +141,10 @@ def SEND_MESSAGE(op):
                     sendMessage(msg.to, msg.to)
                 if msg.text == "ginfo":
                     group = client.getGroup(msg.to)
-                    md = "[Group Name]\n" + group.name + "\n\n[gid]\n" + group.id + "\n\n[Group Picture]\nhttp://dl.profile.line-cdn.net/" + group.pictureStatus
+                    md = "[اسم گروه]\n" + group.name + "\n\n[ایدی گروه]\n" + group.id + "\n\n[عکس گروه]\nhttp://dl.profile.line-cdn.net/" + group.pictureStatus
                     if group.preventJoinByTicket is False: md += "\n\nInvitationURL: Permitted\n"
                     else: md += "\n\nInvitationURL: Refusing\n"
-                    if group.invitee is None: md += "\nMembers: " + str(len(group.members)) + "人\n\nInviting: 0People"
+                    if group.invitee is None: md += "\nتعداد ممبر: " + str(len(group.members)) + "人\n\nInviting: 0People"
                     else: md += "\nMembers: " + str(len(group.members)) + "People\nInvited: " + str(len(group.invitee)) + "People"
                     sendMessage(msg.to,md)
                 if "gname:" in msg.text:
@@ -189,20 +189,20 @@ def SEND_MESSAGE(op):
                         sendMessage(msg.to, ""+contact.displayName+" Sorry")
                     else:
                         sendMessage(msg.to, "wtf?")
-                if msg.text == "cancel":
+                if msg.text == "رل می":
                     group = client.getGroup(msg.to)
                     if group.invitee is None:
-                        sendMessage(op.message.to, "Davat Nadari.")
+                        sendMessage(op.message.to, "هنوز کسی دعوت نشده .")
                     else:
                         gInviMids = [contact.mid for contact in group.invitee]
                         client.cancelGroupInvitation(msg.to, gInviMids)
-                        sendMessage(msg.to, str(len(group.invitee)) + "Auro Cancel by Alish Joker Bot")
+                        sendMessage(msg.to, str(len(group.invitee)) + "تعداد نفراتی که دعوت داده بودن")
                 if "invite:" in msg.text:
                     key = msg.text[-33:]
                     client.findAndAddContactsByMid(key)
                     client.inviteIntoGroup(msg.to, [key])
                     contact = client.getContact(key)
-                    sendMessage(msg.to, ""+contact.displayName+"IYe Jaghi Davat Dadam")
+                    sendMessage(msg.to, ""+contact.displayName+"Iیه کون گشادی که نوچت خاص دعوت دادم مرصی عه")
                 if msg.text == "me":
                     M = Message()
                     M.to = msg.to
